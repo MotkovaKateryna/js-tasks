@@ -327,11 +327,34 @@ console.log(findPairs(myNumbers, sum));
 */
 
 
+// 📌task 7
+// Получить единый массив из любимых пицц каждого друга
 
+// 📍 1 способ: forEach + внутренний for
+// const friends = [
+//   { name: 'alex', pizzas: ['cheese', 'pepperoni'] },
+//   { name: 'mike', pizzas: ['salami', 'margarita'] },
+//   { name: 'stas', pizzas: ['meat'] },
+//   { name: 'anna', pizzas: ['fish'] }
+// ];
 
+// const arrayPizzas = [];
 
+// friends.forEach( friend=> {
+//   const {pizzas} = friend;
+//   for (let i = 0; i < pizzas.length; i++){
+//   arrayPizzas.push(pizzas[i]);
+//   }
+// })
+// console.log(arrayPizzas);
 
+// 📍2 способ: reduce
 
+// const pizzas = friends.reduce((accum, current) => {
+//   return [...accum, ...current.pizzas];
+// }, []);
+ 
+// console.log(pizzas);
 
 // 📌task
 //  Проверка на палиндром: Создайте функцию, которая проверяет,
