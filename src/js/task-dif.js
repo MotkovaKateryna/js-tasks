@@ -229,6 +229,7 @@ console.log(fruitsUnique); // Array(3) [ "kiwi", "apple", "orange" ];
 // 📌TASK 5
 // Создать функцию, которая группирует студентов по возрасту.
 /*
+📍 1 способ forEach
 const students = [
   { name: 'Alex', age: 20 },
   { name: 'Mike', age: 24 },
@@ -260,14 +261,40 @@ students.forEach(student => {
   grouped[student.age].push(student.name);//в масив буде сохранятся только имя студентов
 }
 });
-
-
-
 console.log(grouped);
-
-
  */
 
+
+//  📍2 способ reduce
+/*
+const students = [
+  { name: 'Alex', age: 20 },
+  { name: 'Mike', age: 24 },
+  { name: 'Masha', age: 20 },
+  { name: 'Stas', age: 18 },
+  { name: 'Mila', age: 20 },
+  { name: 'Olya', age: 22 },
+  { name: 'Asya', age: 18 },
+  { name: 'Igor', age: 24 },
+  { name: 'Vasya', age: 20 },
+  { name: 'Petya', age: 18 },
+  { name: 'Lena', age: 24 },
+  { name: 'Ira', age: 20 },
+  { name: 'Oleg', age: 18 },
+];
+
+const groupedByAge = students.reduce((acc, student) => {
+  const { age, name } = student;
+  if (!acc[age]) {
+    acc[age] = [name];
+  } else {
+    acc[age].push(name);
+  }
+  return acc;
+}, {});
+
+console.log(groupedByAge);
+*/
 
 
 
