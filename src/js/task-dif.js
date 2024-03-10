@@ -399,6 +399,7 @@ const reverseString2 = (str) => {
 
 // 📌TASK 9
 //   Проверка на палиндром: Создайте функцию, которая проверяет, является ли заданная строка палиндромом (читается одинаково в обоих направлениях)
+/*
 
 // 📍 Вариант 1
 const string = 'Сел в озере березов лес';
@@ -427,3 +428,24 @@ function isSentencePalindrome(sentence) {
 console.log(isSentencePalindrome("A man, a plan, a canal, Panama!")); // true
 console.log(isSentencePalindrome("Hello, world!")); // false
 console.log(isSentencePalindrome('Сел в озере березов лес')); // true
+*/
+
+// 📌TASK 10
+// Найдите числа, которые делятся на заданное число. 
+// Напишите функцию, которая принимает два аргумента и возвращает все числа, которые делятся на данный делитель. Первый аргумент - это массив чисел, а второй - делитель.
+
+// 1 способ reduce
+
+function searchMultiples(array, divider) {
+   const arrayMultiples = array.reduce((acc,number)=>{
+    number%divider === 0 && acc.push(number);
+    return acc;
+  },[]);  
+  return arrayMultiples;
+}
+
+// 2 способ filte
+const searchMultiples2 = (array, divider) => array.filter(number => number % divider === 0)
+
+console.log(searchMultiples([25,4,8,9,12,28,63,56],3));
+console.log(searchMultiples2([25,4,8,9,12,28,63,56],5))
