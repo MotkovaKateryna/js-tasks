@@ -436,16 +436,52 @@ console.log(isSentencePalindrome('Сел в озере березов лес'));
 
 // 1 способ reduce
 
-function searchMultiples(array, divider) {
-   const arrayMultiples = array.reduce((acc,number)=>{
-    number%divider === 0 && acc.push(number);
-    return acc;
-  },[]);  
-  return arrayMultiples;
+// function searchMultiples(array, divider) {
+//    const arrayMultiples = array.reduce((acc,number)=>{
+//     number%divider === 0 && acc.push(number);
+//     return acc;
+//   },[]);  
+//   return arrayMultiples;
+// }
+
+// 2 способ filter
+// const searchMultiples2 = (array, divider) => array.filter(number => number % divider === 0)
+
+// console.log(searchMultiples([25,4,8,9,12,28,63,56],3));
+// console.log(searchMultiples2([25,4,8,9,12,28,63,56],5))
+
+// 📌TASK 11
+// В два раза старше. Ваша функция принимает два аргумента: текущий возраст отца (лет), текущий возраст сына (лет). 
+// Подсчитайте, сколько лет назад отец был вдвое старше сына (или через сколько лет он будет вдвое старше).
+
+// 📍1 способ
+function age(dadYearsOld, sonYearsOld) {
+  let year = '';
+  if (dadYearsOld/sonYearsOld === 2){
+    return "зараз батько вдвічі старше сина"
+  }
+  for (let i = -50; i < 50; i++){
+     const ratio = (dadYearsOld + i)/(sonYearsOld + i);
+     if (ratio === 2) {
+      i > 0 ? year = `через ${i} років(и)` : year = `${i*(-1)} років(и) тому`;
+      return year;
+
+     }
+      }
 }
+console.log(age(24,2)); 
+console.log(age(36,7));
+console.log(age(84,64));
+console.log(age(44,22));
 
-// 2 способ filte
-const searchMultiples2 = (array, divider) => array.filter(number => number % divider === 0)
+// 📍2 способ
+function ageDifference(fatherAge, sonAge) {
+  // Обчислити різницю в віку, коли батько був вдвічі старший за сина
+  const difference = Math.abs(fatherAge - 2 * sonAge);
+  return difference;
+}
+console.log(ageDifference(24,2));
+console.log(ageDifference(84,64));
 
-console.log(searchMultiples([25,4,8,9,12,28,63,56],3));
-console.log(searchMultiples2([25,4,8,9,12,28,63,56],5))
+
+
