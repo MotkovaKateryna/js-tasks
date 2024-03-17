@@ -473,8 +473,8 @@ console.log(age(24,2));
 console.log(age(36,7));
 console.log(age(84,64));
 console.log(age(44,22));
-
-// 📍2 способ
+ 
+// 📍2 способ simplier
 function ageDifference(fatherAge, sonAge) {
   // Обчислити різницю в віку, коли батько був вдвічі старший за сина
   const difference = Math.abs(fatherAge - 2 * sonAge);
@@ -484,4 +484,34 @@ console.log(ageDifference(24,2));
 console.log(ageDifference(84,64));
 
 
+//📌 TASK 12 найти минимальноее/максимальное число в массиве и кое-что про spread
 
+const arrayOfNumbers = [2,5,9,6,-58,7,69,45,366];
+
+const new2ArrayOfNumbers = arrayOfNumbers; //копия влияющая на оригинальный массив
+const new1ArrayOfNumbers = [...arrayOfNumbers];// копия массива, без влияния на оригинальный
+
+console.log(Math.min(...arrayOfNumbers));
+console.log(Math.max(...arrayOfNumbers));
+
+const string = 'qwertyyuio';
+const array = [...string]; // строка записывается в массив посимвольно
+
+console.log(array);
+
+const array1 = [ 'r', 'fg', 'kla'];
+const array2 = [ 4,8,19];
+
+const mergedArray = [...array1,
+...array2];
+console.log(mergedArray);
+
+
+//Create a new Set object
+const set = new Set([1, 2, 3]);
+
+console.log(set);
+//convert Set object into array
+
+const arrayFromSet = [...set];
+console.log(arrayFromSet);
