@@ -515,3 +515,27 @@ console.log(set);
 
 const arrayFromSet = [...set];
 console.log(arrayFromSet);
+
+
+// deep clone an Object 
+const deepClone = obj => JSON.parse(JSON.stringify(obj));
+// truncate a string to a specific lenght
+
+const truncate = (str , len) => str.length > len ? str.slice(0, len) + '...' : str;
+
+const str = 'qwetryf fjdudhd dkdkedkldy';
+
+console.log(truncate(str,15));
+// remove duplicate items from an array
+
+const deduplicate = arr => [...new Set(arr)];
+console.log(deduplicate([5, 89, 'tyufn', 54, 5, 'red', 89, 'red']));
+
+// check if all array items are the same 
+
+const allSame = arr => arr.every(val => val === arr[0]);
+
+console.log(allSame([58,45,7,69]));
+
+console.log(allSame([5,5,5,6,8]));
+
