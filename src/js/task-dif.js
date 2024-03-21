@@ -532,10 +532,85 @@ const deduplicate = arr => [...new Set(arr)];
 console.log(deduplicate([5, 89, 'tyufn', 54, 5, 'red', 89, 'red']));
 
 // check if all array items are the same 
-
 const allSame = arr => arr.every(val => val === arr[0]);
-
 console.log(allSame([58,45,7,69]));
-
 console.log(allSame([5,5,5,6,8]));
 
+// 📌 TASK 13 Напишите однострочное решение, которое вычисляет сумму квадратных корней для всех чётных чисел целочисленного массива
+
+// 📍1 способ
+// let sum = 0; 
+// const sumSqrt = (numbers) => {
+
+//   for (let i = 0; i <= numbers.length-1; i+=1 ){
+//     if (numbers[i]%2 === 0) {
+//      sum = sum + Math.sqrt(numbers[i]);
+//     }
+//       }
+//  return sum;
+// }
+
+// 📍2 способ
+const sumSqrt = (numbers) =>  numbers.reduce((sum, number) => number%2 === 0 ? sum = sum + Math.sqrt(number) : sum, 0 )
+console.log(sumSqrt([36,9,81,16,49,4,100,144]));
+// 📍3 способ
+console.log(
+  [36,9,81,16,49,4,100,144] // Оставляем только чётные числа
+    .filter(element => !(element % 2)) // Считаем квадратный корень и записываем в аккумулятор
+    .reduceRight((accumulator, element) => accumulator + Math.sqrt(element), 0)
+); // 34  
+
+// 📌 TASK 14 Подсчет нечетных чисел: Напишите функцию, которая принимает число n и возвращает количество положительных нечетных чисел, меньших n.
+// 📍1 способ
+function oddCount(n) {
+  let count = 0;
+    for(let i = n - 1; i > 0; i-=1  ){
+      if (i % 2 !== 0){
+        count++;
+      }
+    }
+return count;
+  }
+console.log(oddCount(7)); //3
+
+
+// 📍2 способ   WHILE
+function countOddNumbersWhile(n) {
+  let count = 0;
+  let i = 1;
+
+  while (i < n) {
+      if (i % 2 !== 0) {
+          count++;
+      }
+      i++;
+  }
+
+  return count;
+}
+
+const resultWhile = countOddNumbersWhile(7);
+console.log(`Количество положительных нечетных чисел (while): ${resultWhile}`);
+
+// 📍3 способ FILTER
+
+function countOddNumbersFilter(n) {
+  const numbers = Array.from({ length: n - 1 }, (_, i) => i + 1);
+  const oddNumbers = numbers.filter(num => num % 2 !== 0);
+  return oddNumbers.length;
+}
+
+const resultFilter = countOddNumbersFilter(7);
+console.log(`Количество положительных нечетных чисел (filter): ${resultFilter}`); 
+
+
+// 📍4 способ рекурсия
+function countOddNumbersRecursive(n, i = 1) {
+  if (i >= n) {
+      return 0;
+  }
+  return (i % 2 !== 0 ? 1 : 0) + countOddNumbersRecursive(n, i + 1);
+}
+
+const resultRecursive = countOddNumbersRecursive(7);
+console.log(`Количество положительных нечетных чисел (рекурсия): ${resultRecursive}`);
